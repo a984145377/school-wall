@@ -4,13 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./routes/mini/speak.js');
 
 var app = express();
 
 // 数据库配置
-var MongoClient = require('mongodb').MongoClient;
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +22,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/publishSpeak', publishSpeakRouter);
+// app.use('/userInfo', userInfoRouter);
+// app.use('/changeAvatar', changeAvatarRouter);
+// app.use('/publishComment', publishCommentRouter);
+// app.use('/likeSpeak', likeSpeakRouter);
+// app.use('/likeComment', likeCommentRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
