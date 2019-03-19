@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/mini/speak.js');
-
+var userRouter = require('./routes/mini/user.js');
 var app = express();
 
 // 数据库配置
@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/user', userRouter);
 // app.use('/publishSpeak', publishSpeakRouter);
 // app.use('/userInfo', userInfoRouter);
 // app.use('/changeAvatar', changeAvatarRouter);
